@@ -5,13 +5,10 @@ import tempfile
 from pathlib import Path
 
 
-# Allowed access-card types
 VALID_CARD_TYPES = {"visitor", "student", "staff"}
 
-# Allowed request statuses
 VALID_STATUSES = {"requested", "approved", "issued", "returned"}
 
-# Every request must contain these fields
 REQUIRED_FIELDS = {
     "id",
     "fellow_id",

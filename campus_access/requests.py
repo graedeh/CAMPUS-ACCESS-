@@ -287,7 +287,6 @@ def load_requests(path):
 
         validated[request_id] = cleaned
 
-    # Only replace existing records after full validation.
     _requests.clear()
     _requests.update(validated)
 
