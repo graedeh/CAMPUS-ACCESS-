@@ -1,0 +1,23 @@
+{
+    "A001": {
+        "id": "A001",
+        "fellow_id": "A001",
+        "card_type": "student",
+        "status": "issued",
+        "approved_by": "sir godswill"
+    },
+    "A002": {
+        "id": "A002",
+        "fellow_id": "A001",
+        "card_type": "student",
+        "status": "requested",
+        "approved_by": null
+    },
+    "A003": {
+        "id": "A003",
+        "fellow_id": "A001",
+        "card_type": "staff",
+        "status": "requested",
+        "approved_by": null
+    }
+}

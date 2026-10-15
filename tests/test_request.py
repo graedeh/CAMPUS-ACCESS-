@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-import requests as access_requests
+from campus_access import requests as access_requests
 
 
 class TestAccessRequests(unittest.TestCase):

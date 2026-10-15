@@ -1,35 +1,56 @@
-def approve_request(request, approver_name):
-    """Approve an access-card request."""
+from campus_access.requests import get_request, update_request
+
+
+def approve_request(request_id, approver_name):
+    """Approve an existing access-card request."""
+
+    request = get_request(request_id)
+
+    if request is None:
+        raise ValueError("Request not found.")
 
     if request["status"] != "requested":
         raise ValueError("Only requested cards can be approved.")
 
-    if not approver_name.strip():
+    if not isinstance(approver_name, str) or not approver_name.strip():
         raise ValueError("Approver name is required.")
 
-    request["status"] = "approved"
-    request["approved_by"] = approver_name.strip()
+    return update_request(
+        request_id,
+        status="approved",
+        approved_by=approver_name.strip(),
+    )
 
-    return request
 
-
-def issue_card(request):
+def issue_card(request_id):
     """Issue an approved access card."""
+
+    request = get_request(request_id)
+
+    if request is None:
+        raise ValueError("Request not found.")
 
     if request["status"] != "approved":
         raise ValueError("Only approved cards can be issued.")
 
-    request["status"] = "issued"
+    return update_request(
+        request_id,
+        status="issued",
+    )
 
-    return request
 
-
-def return_card(request):
+def return_card(request_id):
     """Record the return of an issued access card."""
+
+    request = get_request(request_id)
+
+    if request is None:
+        raise ValueError("Request not found.")
 
     if request["status"] != "issued":
         raise ValueError("Only issued cards can be returned.")
 
-    request["status"] = "returned"
-
-    return request
+    return update_request(
+        request_id,
+        status="returned",
+    )

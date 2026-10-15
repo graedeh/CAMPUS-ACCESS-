@@ -1,0 +1,9 @@
+[
+    {
+        "id": "A001",
+        "fellow_id": "A001",
+        "card_type": "student",
+        "status": "requested",
+        "approved_by": null
+    }
+]
